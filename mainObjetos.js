@@ -34,19 +34,19 @@ console.log(personaje1.nombre)
 let personaje2 = new Personaje("GOKU" , "Kamehameha" , 1700 , 40)
 console.log(personaje2.nombre)
 
-let personaje3 = new Personaje("VEGETA" , "Ataque de Vegeta" , 1700 , 38)
+let personaje3 = new Personaje("VEGETA" , "Big Bang" , 1700 , 38)
 console.log(personaje3.nombre)
 
-let personaje4 = new Personaje("NARUTO" , "Razengan" , 1200 , 28)
+let personaje4 = new Personaje("NARUTO" , "Rasengan" , 1000 , 20)
 console.log(personaje4.nombre)
 
-let personaje5 = new Personaje("MELIODAS" , "Devolver Ataque" , 1160 , 32)
+let personaje5 = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32)
 console.log(personaje5.nombre)
 
-let personaje6 = new Personaje("ONE PUNCH MAN" , "Golpe Simple" , 1000 , 50)
+let personaje6 = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50)
 console.log(personaje6.nombre)
 
-let personaje7 = new Personaje("EREN" , "Golpe De Titan" , 2500 , 0)
+let personaje7 = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12)
 console.log(personaje7.nombre)
 
 
@@ -55,7 +55,7 @@ console.log(personaje7.nombre)
 
 function seleccionarPersonaje(){
     do{
-        personaje = prompt("Ingresar Personaje: ")
+        personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Eren")
         switch(personaje.toUpperCase()){
             case personaje1.nombre:
                 console.log("Usted Selecciono a Luffy") 
@@ -88,7 +88,7 @@ function seleccionarPersonaje(){
                 break
     
             case personaje6.nombre:
-                console.log("Usted Selecciono a One Punch Man")
+                console.log("Usted Selecciono a Saitama")
                 seleccion = true
                 return personaje6
                 break
@@ -113,8 +113,6 @@ function seleccionarPersonaje(){
 
 function pelear(){
 
-   // let vidaPersonaje1 = 100
-   // let vidaPersonaje2 = 100
 
     let i = 1
     peleaActiva = true
@@ -148,16 +146,20 @@ function pelear(){
         if(seleccion1.vida <= 0){
             console.log("------------")
             console.log(seleccion2.nombre + " Es el Ganador")
+            alert("Felicidades a " + seleccion2.nombre + "  Vencio a " + seleccion1.nombre)
             peleaActiva = false;
 
         }else if(seleccion2.vida <= 0){
             console.log("------------")
             console.log(seleccion1.nombre + " Es el Ganador")
+            alert("Felicidades a " + seleccion1.nombre + " Vencio a " + seleccion2.nombre)
             peleaActiva = false;
         }
 
     }
 }
+
+alert("Toda la Informacion se mostrara por Consola  ")
 
 let seleccion1 = seleccionarPersonaje()
 let seleccion2 = seleccionarPersonaje()

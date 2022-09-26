@@ -20,6 +20,8 @@ function esquivar(Personaje){
     }
 }
 
+
+
 function atacar(){
     //Cargar Daño
     dañoAtaque = random()*5
@@ -104,6 +106,7 @@ function seleccionarPersonaje(){
                 break
         }
     }while(seleccion != true)
+    
 }
 
 
@@ -160,6 +163,8 @@ function pelear(){
 }
 
 alert("Toda la Informacion se mostrara por Consola  ")
+
+
 
 let seleccion1 = seleccionarPersonaje()
 let seleccion2 = seleccionarPersonaje()

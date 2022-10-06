@@ -1,10 +1,11 @@
 
-function Personaje(nombre,poder,vida,habilidadEsquivar){
+function Personaje(nombre,poder,vida,habilidadEsquivar,img){
     this.nombre = nombre;
     this.poder = poder;
     this.vida = vida;
     this.habilidadEsquivar = habilidadEsquivar;
-}
+    this.img = img
+} 
 
 function random(){
     let numeroRandom = Math.floor(Math.random()*100)
@@ -30,10 +31,10 @@ function atacar(){
 
 console.log("Seleccion Tu Personaje")
 
-let personaje1 = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30)
+let personaje1 = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/gokuLgbt.jpg")
 console.log(personaje1.nombre)
 
-let personaje2 = new Personaje("GOKU" , "Kamehameha" , 1700 , 40)
+let personaje2 = new Personaje("GOKU" , "Kamehameha" , 1700 , 40,)
 console.log(personaje2.nombre)
 
 let personaje3 = new Personaje("VEGETA" , "Big Bang" , 1700 , 38)
@@ -52,12 +53,35 @@ let personaje7 = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12)
 console.log(personaje7.nombre)
 
 
-
+let listaPersonajes = [personaje1, personaje2, personaje3, personaje4, personaje5, personaje6, personaje7]
 
 
 function seleccionarPersonaje(){
-    do{
-        personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Eren")
+
+
+    let seleccion = false
+    while(seleccion != true){
+
+        personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Levi")
+
+        personaje = personaje.toUpperCase()
+
+        for(let i = 0; i<listaPersonajes.length; i+=1){
+            if(listaPersonajes[i].nombre ===  personaje){
+                console.log("Usted Selecciono a " + listaPersonajes[i].nombre)
+                seleccion = true
+                return listaPersonajes[i]
+            }
+
+           
+    }
+    console.log("Seleccione un Personaje Valido")
+    }
+
+
+
+    /*do{
+        personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Levi")
         switch(personaje.toUpperCase()){
             case personaje1.nombre:
                 console.log("Usted Selecciono a Luffy") 
@@ -96,7 +120,7 @@ function seleccionarPersonaje(){
                 break
     
             case personaje7.nombre:
-                console.log("Usted Selecciono a Eren")
+                console.log("Usted Selecciono a Levi")
                 seleccion = true
                 return personaje7
                 break
@@ -105,7 +129,7 @@ function seleccionarPersonaje(){
                 seleccion = false
                 break
         }
-    }while(seleccion != true)
+    }while(seleccion != true)*/
     
 }
 
@@ -164,7 +188,7 @@ function pelear(){
 
 alert("Toda la Informacion se mostrara por Consola  ")
 
-
+console.log(listaPersonajes )
 
 let seleccion1 = seleccionarPersonaje()
 let seleccion2 = seleccionarPersonaje()

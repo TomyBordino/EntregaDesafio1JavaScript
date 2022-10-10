@@ -31,29 +31,29 @@ function atacar(){
 
 console.log("Seleccion Tu Personaje")
 
-let personaje1 = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/gokuLgbt.jpg")
-console.log(personaje1.nombre)
+let luffy = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/gokuLgbt.jpg")
+console.log(luffy.nombre)
 
-let personaje2 = new Personaje("GOKU" , "Kamehameha" , 1700 , 40,)
-console.log(personaje2.nombre)
+let goku = new Personaje("GOKU" , "Kamehameha" , 1700 , 40,)
+console.log(goku.nombre)
 
-let personaje3 = new Personaje("VEGETA" , "Big Bang" , 1700 , 38)
-console.log(personaje3.nombre)
+let vegeta = new Personaje("VEGETA" , "Big Bang" , 1700 , 38)
+console.log(vegeta.nombre)
 
-let personaje4 = new Personaje("NARUTO" , "Rasengan" , 1000 , 20)
-console.log(personaje4.nombre)
+let naruto = new Personaje("NARUTO" , "Rasengan" , 1000 , 20)
+console.log(naruto.nombre)
 
-let personaje5 = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32)
-console.log(personaje5.nombre)
+let meliodas = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32)
+console.log(meliodas.nombre)
 
-let personaje6 = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50)
-console.log(personaje6.nombre)
+let saitama = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50)
+console.log(saitama.nombre)
 
-let personaje7 = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12)
-console.log(personaje7.nombre)
+let levi = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12)
+console.log(levi.nombre)
 
 
-let listaPersonajes = [personaje1, personaje2, personaje3, personaje4, personaje5, personaje6, personaje7]
+let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi]
 
 
 function seleccionarPersonaje(){
@@ -69,6 +69,8 @@ function seleccionarPersonaje(){
         for(let i = 0; i<listaPersonajes.length; i+=1){
             if(listaPersonajes[i].nombre ===  personaje){
                 console.log("Usted Selecciono a " + listaPersonajes[i].nombre)
+                console.log(listaPersonajes[i].nombre + " Posee " + listaPersonajes[i].vida + " Puntos de vida")
+                console.log("------------------------------------------")
                 seleccion = true
                 return listaPersonajes[i]
             }
@@ -79,6 +81,7 @@ function seleccionarPersonaje(){
     }
 
 
+    //DEJO ESTE CODIGO COMENTADO POR EL MOMENTO PARA QUE SE VEA QUE UTILIZANDO ARRAYS PUDE REDUCIR GRAN CANTIDAD DE LINEA DE CODIGO
 
     /*do{
         personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Levi")
@@ -157,7 +160,9 @@ function pelear(){
             if(esquivar(seleccion2) === true){
                 console.log(seleccion2.nombre + " Esquiva el Ataque")
             }else{
-                seleccion2.vida -= atacar() 
+                dañoInflingido = atacar();
+                seleccion2.vida -= dañoInflingido;
+                console.log(seleccion2.nombre + " Recibe " + dañoInflingido + " Puntos de Daño " )
             }
 
 
@@ -166,7 +171,9 @@ function pelear(){
             if(esquivar(seleccion1) === true){
                 console.log(seleccion1.nombre + " Esquiva el Ataque")
             }else{
-                seleccion1.vida -= atacar() 
+                dañoInflingido = atacar();
+                seleccion1.vida -= dañoInflingido;
+                console.log(seleccion1.nombre + " Recibe " + dañoInflingido + " Puntos de Daño " )
             }
         }
 
@@ -182,6 +189,9 @@ function pelear(){
             alert("Felicidades a " + seleccion1.nombre + " Vencio a " + seleccion2.nombre)
             peleaActiva = false;
         }
+        console.log("*****")
+        console.log(seleccion1.nombre + " Tiene " + seleccion1.vida + " Puntos de vida")
+        console.log(seleccion2.nombre + " Tiene " + seleccion2.vida + " Puntos de vida")
 
     }
 }

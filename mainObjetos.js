@@ -1,3 +1,5 @@
+let container = document.getElementById("container")
+
 
 function Personaje(nombre,poder,vida,habilidadEsquivar,img){
     this.nombre = nombre;
@@ -31,25 +33,25 @@ function atacar(){
 
 console.log("Seleccion Tu Personaje")
 
-let luffy = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/gokuLgbt.jpg")
+let luffy = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/luffyJS.jpg")
 console.log(luffy.nombre)
 
-let goku = new Personaje("GOKU" , "Kamehameha" , 1700 , 40,)
+let goku = new Personaje("GOKU" , "Kamehameha" , 1700 , 40, "./imagenes/gokuJS.jpg")
 console.log(goku.nombre)
 
-let vegeta = new Personaje("VEGETA" , "Big Bang" , 1700 , 38)
+let vegeta = new Personaje("VEGETA" , "Big Bang" , 1700 , 38, "/imagenes/vegetaJS.jpg")
 console.log(vegeta.nombre)
 
-let naruto = new Personaje("NARUTO" , "Rasengan" , 1000 , 20)
+let naruto = new Personaje("NARUTO" , "Rasengan" , 1000 , 20, "/imagenes/narutoJS.jpg")
 console.log(naruto.nombre)
 
-let meliodas = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32)
+let meliodas = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32, "/imagenes/meliodasJS.jpeg")
 console.log(meliodas.nombre)
 
-let saitama = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50)
+let saitama = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50, "/imagenes/saitamaJS.jpg")
 console.log(saitama.nombre)
 
-let levi = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12)
+let levi = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12, "/imagenes/leviJS.jpg")
 console.log(levi.nombre)
 
 
@@ -80,60 +82,6 @@ function seleccionarPersonaje(){
     console.log("Seleccione un Personaje Valido")
     }
 
-
-    //DEJO ESTE CODIGO COMENTADO POR EL MOMENTO PARA QUE SE VEA QUE UTILIZANDO ARRAYS PUDE REDUCIR GRAN CANTIDAD DE LINEA DE CODIGO
-
-    /*do{
-        personaje = prompt("Ingresar Personaje: Luffy - Goku - Vegeta - Naruto - Meliodas - Saitama - Levi")
-        switch(personaje.toUpperCase()){
-            case personaje1.nombre:
-                console.log("Usted Selecciono a Luffy") 
-                seleccion = true
-                return personaje1
-                break
-    
-            case personaje2.nombre:
-                console.log("Usted Selecciono a Goku")
-                seleccion = true
-                return personaje2
-                break
-    
-            case personaje3.nombre:
-                console.log("Usted Selecciono a Vegeta")
-                seleccion = true
-                return personaje3
-                break
-    
-            case personaje4.nombre:
-                console.log("Usted Selecciono a Naruto")
-                seleccion = true
-                return personaje4
-                break
-    
-            case personaje5.nombre:
-                console.log("Usted Selecciono a Meliodas")
-                seleccion = true
-                return personaje5
-                break
-    
-            case personaje6.nombre:
-                console.log("Usted Selecciono a Saitama")
-                seleccion = true
-                return personaje6
-                break
-    
-            case personaje7.nombre:
-                console.log("Usted Selecciono a Levi")
-                seleccion = true
-                return personaje7
-                break
-            default: 
-                console.log("Seleccione un Personaje Valido")
-                seleccion = false
-                break
-        }
-    }while(seleccion != true)*/
-    
 }
 
 
@@ -198,9 +146,33 @@ function pelear(){
 
 alert("Toda la Informacion se mostrara por Consola  ")
 
+listaPersonajes.forEach((item) =>{
+    const divCard = document.createElement("div");
+
+    const divContent = `
+    <div class = "card-body">
+    <h5 class = "card-title">${item.nombre}</h5>
+    <img src = "${item.img}">
+    <p class = "card-text">${item.poder}</p>
+    <p class = "card-text">${item.vida}</p>
+    <p class = "card-text">${item.habilidadEsquivar}</p>
+    </div>
+    `;
+    divCard.innerHTML = divContent;
+    container.append(divCard);
+
+})
+
+const btn = document.createElement('button')
+btn.textContent = "sorpresa"
+
+
+
 console.log(listaPersonajes )
 
 let seleccion1 = seleccionarPersonaje()
 let seleccion2 = seleccionarPersonaje()
 
-pelear()
+//pelear()
+
+

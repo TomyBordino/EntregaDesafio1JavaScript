@@ -1,12 +1,13 @@
 let container = document.getElementById("container")
 
 
-function Personaje(nombre,poder,vida,habilidadEsquivar,img){
+function Personaje(nombre,poder,vida,habilidadEsquivar,img,id){
     this.nombre = nombre;
     this.poder = poder;
     this.vida = vida;
     this.habilidadEsquivar = habilidadEsquivar;
-    this.img = img
+    this.img = img; 
+    this.id = id;
 } 
 
 function random(){
@@ -33,31 +34,31 @@ function atacar(){
 
 console.log("Seleccion Tu Personaje")
 
-let luffy = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/luffyJS.jpg")
+let luffy = new Personaje("LUFFY" , "Shotgun Gattlin" , 1500 , 30 , "./imagenes/luffyJS.jpg", 1)
 console.log(luffy.nombre)
 
-let goku = new Personaje("GOKU" , "Kamehameha" , 1700 , 40, "./imagenes/gokuJS.jpg")
+let goku = new Personaje("GOKU" , "Kamehameha" , 1700 , 40, "./imagenes/gokuJS.jpg", 2)
 console.log(goku.nombre)
 
-let vegeta = new Personaje("VEGETA" , "Big Bang" , 1700 , 38, "/imagenes/vegetaJS.jpg")
+let vegeta = new Personaje("VEGETA" , "Big Bang" , 1700 , 38, "/imagenes/vegetaJS.jpg", 3)
 console.log(vegeta.nombre)
 
-let naruto = new Personaje("NARUTO" , "Rasengan" , 1000 , 20, "/imagenes/narutoJS.jpg")
+let naruto = new Personaje("NARUTO" , "Rasengan" , 1000 , 20, "/imagenes/narutoJS.jpg", 4)
 console.log(naruto.nombre)
 
-let meliodas = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32, "/imagenes/meliodasJS.jpeg")
+let meliodas = new Personaje("MELIODAS" , "Contra-Ataque Total" , 1260 , 32, "/imagenes/meliodasJS.jpeg", 5)
 console.log(meliodas.nombre)
 
-let saitama = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50, "/imagenes/saitamaJS.jpg")
+let saitama = new Personaje("SAITAMA" , "Golpe Simple" , 1000 , 50, "/imagenes/saitamaJS.jpg", 6)
 console.log(saitama.nombre)
 
-let levi = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12, "/imagenes/leviJS.jpg")
+let levi = new Personaje("LEVI" , "Ataque Tridimensional" , 800 , 12, "/imagenes/leviJS.jpg", 7)
 console.log(levi.nombre)
 
 
 let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi]
 
-
+/*
 function seleccionarPersonaje(){
 
 
@@ -82,7 +83,7 @@ function seleccionarPersonaje(){
     console.log("Seleccione un Personaje Valido")
     }
 
-}
+}*/
 
 
 
@@ -91,6 +92,7 @@ function seleccionarPersonaje(){
 
 function pelear(){
 
+    
 
     let i = 1
     peleaActiva = true
@@ -152,7 +154,7 @@ listaPersonajes.forEach((item) =>{
     const divContent = `
     <div class = "card-body">
     <h5 class = "card-title">${item.nombre}</h5>
-    <img src = "${item.img}">
+    <img id='${item.id}' src = "${item.img}">
     <p class = "card-text">${item.poder}</p>
     <p class = "card-text">${item.vida}</p>
     <p class = "card-text">${item.habilidadEsquivar}</p>
@@ -163,8 +165,33 @@ listaPersonajes.forEach((item) =>{
 
 })
 
-const btn = document.createElement('button')
-btn.textContent = "sorpresa"
+function seleccionarPersonaje(){
+/*
+    img.addEventListener('click', (e)=>{
+        const id = parseInt(e.target.id);
+        const objeto = listaPersonajes.find((personaje) =>
+        personaje.id === id)
+
+    return objeto
+})*/
+
+const imagenes = document.querySelectorAll(".imagenes");
+imagenes.forEach((imagen) => {
+	imagen.addEventListener("click", (e) => {
+		const id = parseInt(e.target.id);
+		const personaje = listaPersonajes.find((personaje) => personaje.id === id);
+        console.log(personaje);
+        return personaje
+	});
+});
+
+}
+
+function seleccionarPersonajes(){
+    let seleccion1 = seleccionarPersonaje()
+    let seleccion2 = seleccionarPersonaje()
+};
+
 
 
 
@@ -173,6 +200,8 @@ console.log(listaPersonajes )
 let seleccion1 = seleccionarPersonaje()
 let seleccion2 = seleccionarPersonaje()
 
-//pelear()
+seleccionarPersonajes()
+
+pelear()
 
 
